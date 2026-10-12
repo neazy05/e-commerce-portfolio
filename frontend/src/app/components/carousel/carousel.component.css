@@ -1,0 +1,52 @@
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+}
+
+a:link {
+    text-decoration: none;
+    color: white
+}
+a:hover {
+    color: white;
+}
+a:visited {
+    color: white;
+}
+a:active {
+    color: white;
+}
+
+
+
+/* CAROUSEL */
+.my-carousel-container {
+    margin: 0 80px;
+    margin-bottom: 30px;
+}
+
+
+.carousel-item {
+    height: 60vh;
+    min-height: 350px;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+@media screen and (max-width: 800px) {
+    .my-carousel-container {
+        margin: 0;
+    }
+}
+
+
+/* END OF CAROUSEL */
+
+

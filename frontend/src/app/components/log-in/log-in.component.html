@@ -1,0 +1,38 @@
+<div class="container text-center back" style="padding: 70px 0px;">
+
+<div class="row col-lg-12">
+<div class="col-sm-4"></div>
+<div class="col-sm-4 row py-5 p-4 bg-white rounded shadow-sm ">
+
+    <p class="h4 mb-4 bg-dark rounded-pill px-4 py-3 text-white">Sign in</p>
+
+    <!-- Email -->
+    <input type="email" id="email" class="form-control mb-4" placeholder="username" name="email" [(ngModel)]="model.email">
+
+    <!-- Password -->
+    <input type="password" id="password" class="form-control mb-4" placeholder="Password" name="password" [(ngModel)]="model.password">
+
+    <div class="d-flex justify-content-around">
+        <label class="form-check-label">
+            <input class="form-check-input mb-4" type="checkbox"> Remember me
+          </label>
+      <div>
+        <!-- Forgot password -->
+        <a href="">Forgot password?</a>
+      </div>
+    </div>
+
+
+    <!-- Sign in button -->
+    <button type="button" class="btn btn-primary rounded-pill px-4 py-3 btn-lg btn-block mb-4" (click)="userLogin()">log in</button>
+
+    <!-- Register -->
+
+    <p>Not a member?
+
+      <a href="e-comeerce\src\app\sign-up\sign-up.component.html" >Register</a>
+    </p>
+    </div>
+    <div class="col-sm-4"></div>
+    </div>
+  </div>

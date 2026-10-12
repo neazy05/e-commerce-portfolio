@@ -1,0 +1,25 @@
+.img {
+  height:350px;
+  width: 30%;
+  margin: auto;
+}
+
+.spacer {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+@media screen and (max-width: 799px) {
+  .img {
+    height:250px;
+    width: 80%;
+  }
+  .spacer {
+    margin-top:30px;
+    margin-bottom: 0;
+  }
+}
+
+.custom-link:hover {
+  cursor: pointer;
+}

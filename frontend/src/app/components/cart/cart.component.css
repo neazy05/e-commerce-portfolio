@@ -1,0 +1,103 @@
+.list-view-box{
+    margin-bottom: 30px;
+}
+
+.cart-box-main{
+    padding: 70px 0px;
+}
+.table-main table thead{
+    background: #0d0222;
+    color: #ffffff;
+}
+.table-main .table thead th{
+    font-size: 18px;
+}
+.table-main table td.thumbnail-img{
+    width: 120px;
+}
+.table-main table td{
+    vertical-align: middle;
+    font-size: 16px;
+}
+.quantity-box input{
+    width: 60px;
+    border: 2px solid #000000;
+    text-align: center;
+}
+.quantity-box input:focus{
+    border-color: #b0b435;
+}
+.name-pr a{
+    font-weight: 700;
+    font-size: 18px;
+    color: #000000;
+}
+
+.coupon-box .input-group .form-control {
+    min-height: 50px;
+    border-radius: 0px;
+    font-weight: 400;
+    border: 1px solid #e8e8e8;
+    box-shadow: none !important;
+}
+.coupon-box .input-group .form-control::-moz-placeholder{
+    color: #000000;
+}
+.coupon-box .input-group .input-group-append .btn-theme {
+    background: #000000;
+    color: #ffffff;
+    border: none;
+    border-radius: 0px;
+    font-size: 16px;
+    padding: 0px 20px;
+}
+.coupon-box .input-group .input-group-append .btn-theme:hover {
+    background: #b0b435;
+}
+.update-box input[type="submit"]{
+    background: #000000;
+    border: medium none;
+    border-radius: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    color: #fff;
+    display: inline-block;
+
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    height: 50px;
+    line-height: 40px;
+    margin-right: 15px;
+    padding: 0 20px;
+    text-shadow: none;
+    text-transform: uppercase;
+    -webkit-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+    white-space: nowrap;
+    width: inherit;
+}
+.update-box input[type="submit"]:hover{
+    background: #b0b435;
+}
+.order-box h3{
+    font-size: 16px;
+    color: #222222;
+    font-weight: 700;
+}
+.order-box h4 {
+    font-size: 16px;
+    padding: 0px;
+    line-height: 35px !important;
+}
+.order-box .font-weight-bold{
+    font-size: 18px;
+}
+
+.custom-link {
+  text-decoration: underline;
+}
+
+.custom-link:hover {
+  cursor: pointer;
+}

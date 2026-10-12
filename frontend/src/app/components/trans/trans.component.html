@@ -1,0 +1,27 @@
+<div class="container my-4 display-6">
+  <div class="row">
+    <div class="col-md-3 col-xs-1 col-sm-1"></div>
+    <div class="col-md-6 col-xs-10 col-sm-10">Transfer Money</div>
+    <div class="col-md-3 col-xs-1 col-sm-1"></div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3 col-xs-1 col-sm-1"></div>
+    <div class="col-md-6 col-xs-10 col-sm-10">
+      <div class="mt-2">
+        <label for="formControlInput1" class="form-label">Username:</label>
+        <select class="form-select" aria-label="Default select example" [(ngModel)]="selected" name="status" placeholder="select">
+          <option *ngFor="let profile of profiles" [ngValue]="profile.id">{{profile.username}} -- Account bank : {{profile.bank}}</option>
+
+        </select>
+      </div>
+      <div class="my-4">
+        <label for="formControlInput1" class="form-label">Amount To Remove:</label>
+        <input type="number" class="form-control" id="formControlInput1" placeholder="amount" name="amount" [(ngModel)]="amount">
+      </div>
+      <button class="btn btn-primary form-control mt-4" (click)="deductMony()">Remove</button>
+    </div>
+    <div class="col-md-3 col-xs-1 col-sm-1"></div>
+  </div>
+</div>

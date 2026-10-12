@@ -1,0 +1,14 @@
+<div class="category-container">
+  <div class="category-header">
+    <div class="category-header-text">Shop by category</div>
+    <div class="category-header-link"><a href="#">See More +</a></div>
+  </div>
+  <div class="category-list">
+    <div *ngFor="let category of categories" style="width:33%;float:left;">
+      <div class="category">
+        <div class="cat-image"><a href="#"><img src={{category.image}} alt="category image"></a></div>
+        <div class="cat-name"><a href="#">{{category.name}}</a></div>
+      </div>
+    </div>
+  </div>
+</div>

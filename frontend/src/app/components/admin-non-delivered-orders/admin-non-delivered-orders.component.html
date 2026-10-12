@@ -1,0 +1,44 @@
+<div class="container my-4 display-6">
+  Not-yet-delivered Orders
+</div>
+
+<div *ngIf="orders != null">
+  <div class="container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope='col'>#</th>
+          <th scope='col'>Customer</th>
+          <th scope='col'>Deliverer</th>
+          <th scope='col'>Total</th>
+          <th scope='col'>Location</th>
+          <th scope='col'>Created At</th>
+          <th scope='col'>details</th>
+
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of orders; let i = index;">
+          <td *ngIf="order.deliverer_id != null" scope="row" class="count">{{i+1}}</td>
+          <td *ngIf="order.deliverer_id != null">{{order.user_name}}</td>
+          <td *ngIf="order.deliverer_id != null">{{order.delivery_name}}</td>
+          <td *ngIf="order.deliverer_id != null">{{order.total}}</td>
+          <td *ngIf="order.deliverer_id != null">{{order.address}}</td>
+          <td *ngIf="order.deliverer_id != null">{{datePipe.transform(order.created_at, "dd/MM/yy - hh:mm:ss a")}}</td>
+          <td *ngIf="order.deliverer_id != null"><span class="details-button" [routerLink]="'/orderDetails/' + order.id">Details</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<div *ngIf="orders == null" style="height:70vh; display: flex;align-items: center;
+justify-content: center;">
+  <div>
+    <div class="spinner-border text-secondary" style="width: 15vh; height: 15vh;" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+</div>

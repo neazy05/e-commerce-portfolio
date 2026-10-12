@@ -1,0 +1,21 @@
+<div class="container d-flex justify-content-center align-items-center">
+  <div class="card">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form">
+          <h2>Registration</h2>
+          <div class="inputbox mt-3"> <span>User Name</span> <input ngDefaultControl  type="text" class="form-control" id="username" required name="username" [(ngModel)]="profile.username"> </div>
+          <div class="inputbox mt-3"> <span>Email</span> <input ngDefaultControl type="text" placeholder="Email" id="email" name="email" class="form-control" [(ngModel)]="profile.email"> </div>
+          <div class="inputbox mt-3"> <span>password</span> <input ngDefaultControl  type="password" id="password" placeholder="*********" name="password" class="form-control" [(ngModel)]="profile.password"> </div>
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="text-right"> <button class="btn btn-success register btn-block" (click)="register();">Register</button> </div> <a class="login" [routerLink]="'/login'">Login</a>
+          </div>
+
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="text-center mt-5"> <img src="https://www.e-commercesummits.com/app/uploads/2020/12/eCommerce_Logo.png" width="400" height="400"> </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,6 @@
+// Local development configuration. Change these values for your own setup.
+export const environment = {
+  production: false,
+  backendUrl: 'http://127.0.0.1:8000',
+  apiUrl: 'http://127.0.0.1:8000/api'
+};

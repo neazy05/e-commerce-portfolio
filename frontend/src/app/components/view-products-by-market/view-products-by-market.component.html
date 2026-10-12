@@ -1,0 +1,73 @@
+<div class="row">
+  <div class="col-md-3 col-xs-1 col-sm-1"></div>
+  <div class="col-md-3 col-xs-5 col-sm-5">
+    <div class="container my-4 display-6">
+      <button class="btn btn-outline-secondary" (click)="navigateBack()">back</button>
+    </div>
+  </div>
+  <div class="col-md-3 col-xs-1 col-sm-1"></div>
+</div>
+
+<div *ngIf="products != null && marketOwner != null">
+  <div class="container spacer">
+    <div class="row mb-4">
+      <div class="col-md-3 col-xs-1 col-sm-1"></div>
+      <div class="col-md-5 col-xs-12 col-sm-12" align="center"><span class="display-4">{{marketOwner}}</span></div>
+      <div class="col-md-3 col-xs-1 col-sm-1"></div>
+    </div>
+    <div class="row">
+      <div class="col-md-3 col-xs-1 col-sm-1"></div>
+      <div class="col-md-5 col-xs-12 col-sm-12"><span>Products: {{productCount}}</span></div>
+      <div class="col-md-3 col-xs-1 col-sm-1"></div>
+    </div>
+    <div class="row">
+      <div class="col-md-3 col-xs-1 col-sm-1"></div>
+      <div class="col-md-5 col-xs-12 col-sm-12"><span>Avg price: ${{averagePrice}}</span></div>
+      <div class="col-md-3 col-xs-1 col-sm-1"></div>
+    </div>
+    <div class="row">
+      <div class="col-md-3 col-xs-1 col-sm-1"></div>
+      <div class="col-md-5 col-xs-12 col-sm-12" align="center">
+        <div
+          style="height: 1px; width: 100%; background-color: rgb(138, 138, 138); margin-top: 10px; margin-bottom:20px;">
+        </div>
+      </div>
+      <div class="col-md-3 col-xs-1 col-sm-1"></div>
+    </div>
+
+    <div *ngFor="let product of products" class="mt-3">
+      <div class="row">
+        <div class="col-md-3 col-xs-1 col-sm-1"></div>
+        <div class="col-md-3 col-xs-5 col-sm-5">
+          <span class="display-6 px-1 product-link" style="border-right: 1px solid black;"
+            [routerLink]="'/product/' + product.id">{{product.name}}</span>
+          <span class="mx-2">price: ${{product.price}}</span>
+        </div>
+        <div class="col-md-4 col-xs-5 col-sm-5">
+          <div class="btn btn-outline-success mt-2" (click)="addToCart(product.id)">Add to Cart</div>
+          <!-- <div *ngIf="isFavorite==false" class="btn btn-outline-warning mx-1">Add to Favorites</div>
+          <div *ngIf="isFavorite==true" class="btn btn-warning mx-1 text-white">Remove from Favorites</div> -->
+        </div>
+        <div class="col-md-2 col-xs-1 col-sm-1"></div>
+      </div>
+      <div class="row mt-2 mb-5">
+        <div class="col-md-3 col-xs-1 col-sm-1"></div>
+        <div class="col-md-3 col-xs-12 col-sm-12 img mt-2 product-link"
+          style="background-repeat: no-repeat; background-position: center;background-size: contain; background-image:url({{sharedService.url+'/storage/image/'+product.picture}}); height:350px;"
+          [routerLink]="'/product/' + product.id">
+        </div>
+        <div class="col-md-3 col-xs-1 col-sm-1"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div *ngIf="products == null || marketOwner == null" style="height:90vh; display: flex;align-items: center;
+justify-content: center;">
+  <div>
+    <div class="spinner-border text-secondary" style="width: 15vh; height: 15vh;" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+</div>

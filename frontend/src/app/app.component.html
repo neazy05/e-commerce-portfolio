@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="head">
+    <div class="menu"><i class="fa fa-bars" (click)="toggleSidebar()"></i></div>
+    <div class="logo">
+        <span class="logo-text" [routerLink]="'allcategories'">E-Commerce</span>
+        <span class="logo-icon" [routerLink]="'allcategories'"><i class="fa fa-store"></i></span>
+    </div>
+    <div class="search-bar">
+      <!-- <select name="" id=""></select> -->
+      <input type="text" name="" class="search-input">
+      <!-- <button>search</button> -->
+    </div>
+    <div class="account">
+      <div class="custom-link" [routerLink]="'/profile'">
+        <span class="account-icon"><i class="fa fa-user"></i></span>
+        <span class="account-text">Account</span>
+      </div>
+    </div>
+    <div class="my-items">
+      <div class="custom-link" [routerLink]="'myfavorite'">
+        <span class="items-icon"><i class="fa fa-heart"></i></span>
+        <span class="items-text">My Items</span>
+      </div>
+    </div>
+    <div class="cart">
+      <div class="custom-link" [routerLink]="'/cart'">
+        <i class="fa fa-shopping-cart"></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="my-sidebar" id="sidebar">
+    <div class="sidebar-top">
+      <div class="sidebar-logo"><i class="fa fa-store"></i></div>
+      <div class="sidebar-space"></div>
+      <div class="sidebar-x"><i class="fa fa-times" (click)="toggleSidebar()"></i></div>
+    </div>
+    <div class="sidebar-content">
+      <div class="sidebar-title">E-Commerce</div>
+      <div class="sidebar-item" [routerLink]="'/allproducts'" (click)="toggleSidebar()">
+        <span class="sidebar-item-icon"><i class="fa fa-box-open"></i></span>
+        <span class="sidebar-item-text custom-link">All Products</span>
+      </div>
+      <div class="sidebar-item" [routerLink]="'/allcategories'" (click)="toggleSidebar()">
+        <span class="sidebar-item-icon"><i class="fa fa-cart-arrow-down"></i></span>
+        <span class="sidebar-item-text custom-link">Categories</span>
+      </div>
+      <div class="sidebar-item">
+        <span class="sidebar-item-icon"><i class="fa fa-shopping-cart"></i></span>
+        <span class="sidebar-item-text custom-link" [routerLink]="'cart'" (click)="toggleSidebar()">Cart</span>
+      </div>
+      <div class="sidebar-item">
+        <span class="sidebar-item-icon"><i class="fa fa-map"></i></span>
+        <span class="sidebar-item-text custom-link" [routerLink]="'allorders'" (click)="toggleSidebar()">My Orders</span>
+      </div>
+      <div class="sidebar-item">
+        <span class="sidebar-item-icon"><i class="fa fa-coin"></i></span>
+        <span class="sidebar-item-text custom-link" [routerLink]="'applycoupon'" (click)="toggleSidebar()">eWallet</span>
+      </div>
+      <div class="sidebar-item" *ngIf="profile.account_type=='delivery'">
+        <span class="sidebar-item-icon"><i class="fa fa-shield"></i></span>
+        <span class="sidebar-item-text custom-link" [routerLink]="'delivery/assignedDeliveries'" (click)="toggleSidebar()">Assigned Deliveries</span>
+      </div>
+      <div class="sidebar-item" *ngIf="profile.account_type=='market'">
+        <span class="sidebar-item-icon"><i class="fa fa-shield"></i></span>
+        <span class="sidebar-item-text custom-link" [routerLink]="'orders/market'" (click)="toggleSidebar()">Customers' Orders</span>
+      </div>
+      <div class="sidebar-item" *ngIf="profile.account_type=='market'">
+        <span class="sidebar-item-icon"><i class="fa fa-box"></i></span>
+        <span class="sidebar-item-text custom-link" [routerLink]="'products/market'" (click)="toggleSidebar()">My Products</span>
+      </div>
+      <div class="sidebar-item" *ngIf="profile.account_type=='market'">
+        <span class="sidebar-item-icon"><i class="fa fa-plus"></i></span>
+        <span class="sidebar-item-text custom-link" [routerLink]="'addproduct'" (click)="toggleSidebar()">Add Product</span>
+      </div>
+      <div class="sidebar-item" *ngIf="profile.account_type=='admin'">
+        <span class="sidebar-item-icon"><i class="fa fa-shield"></i></span>
+        <span class="sidebar-item-text custom-link" [routerLink]="'admin/all-orders'" (click)="toggleSidebar()">All Orders</span>
+      </div>
+      <div class="sidebar-item" *ngIf="profile.account_type=='admin'">
+        <span class="sidebar-item-icon"><i class="fa fa-shield"></i></span>
+        <span class="sidebar-item-text custom-link" [routerLink]="'admin/orders-without-delivery'" (click)="toggleSidebar()">Orders without Deliverers</span>
+      </div>
+      <div class="sidebar-item" *ngIf="profile.account_type=='admin'">
+        <span class="sidebar-item-icon"><i class="fa fa-shield"></i></span>
+        <span class="sidebar-item-text custom-link" [routerLink]="'admin/non-delivered-orders'" (click)="toggleSidebar()">Non-delivered Orders</span>
+      </div>
+      <div class="sidebar-item" *ngIf="profile.account_type=='admin'">
+        <span class="sidebar-item-icon"><i class="fa fa-shield"></i></span>
+        <span class="sidebar-item-text custom-link" [routerLink]="'admin/deduct-money'" (click)="toggleSidebar()">Deduct Money</span>
+      </div>
+      <div class="sidebar-item" *ngIf="profile.account_type=='admin'">
+        <span class="sidebar-item-icon"><i class="fa fa-shield"></i></span>
+        <span class="sidebar-item-text custom-link" [routerLink]="'registration'" (click)="toggleSidebar()">New User</span>
+      </div>
+      <!-- <div class="sidebar-item" *ngIf="profile.account_type=='admin'">
+        <span class="sidebar-item-icon"><i class="fa fa-shield"></i></span>
+        <span class="sidebar-item-text custom-link" [routerLink]="'admin/users-ewallets'" (click)="toggleSidebar()">Users' eWallets</span>
+      </div> -->
+      <div class="sidebar-item" *ngIf="profile.account_type=='admin'">
+        <span class="sidebar-item-icon"><i class="fa fa-shield"></i></span>
+        <span class="sidebar-item-text custom-link" [routerLink]="'admin/generate-codes'" (click)="toggleSidebar()">Generate Coupons</span>
+      </div>
+      <div class="sidebar-item" *ngIf="profile.account_type=='admin'">
+        <span class="sidebar-item-icon"><i class="fa fa-shield"></i></span>
+        <span class="sidebar-item-text custom-link" [routerLink]="'admin/generated-coupons'" (click)="toggleSidebar()">Generated Coupons</span>
+      </div>
+      <div class="sidebar-item" *ngIf="isLoggedIn">
+        <span class="sidebar-item-icon"><i class="fa fa-sign-out"></i></span>
+        <span class="sidebar-item-text custom-link" (click)="logOut()">Logout</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="learn-more">
+    <div>Have a return? We make it easy.</div>
+    <div class="learn-more-link"><a href="#">learn more</a></div>
+  </div> -->
+
+<router-outlet></router-outlet>
+</body>
+
+</html>

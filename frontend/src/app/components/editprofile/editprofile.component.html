@@ -1,0 +1,126 @@
+<script crossorigin="anonymous" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script><link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" rel="stylesheet">
+<div class="container">
+  <div class="container mt-3">
+    <div class="row flex-lg-nowrap ">
+      <div class="col-12 col-lg-auto mb-3" style="width: 200px;">
+
+      </div>
+      <div class="col">
+         <div class="row ">
+         <div class="col mb-3">
+          <div class="card">
+         <div class="card-body">
+           <div class="e-profile">
+               <div class="row">
+                   <div class="col-12 col-sm-auto mb-3">
+                     <div class="mx-auto" style="width: 140px;">
+                       <div class="d-flex justify-content-center align-items-center rounded" style="height: 140px; background-color: rgb(233, 236, 239);">
+                         <span style="color: rgb(166, 168, 170); font: bold 8pt Arial;">   <img height="140px" src="{{sharedService.url+'/storage/image/'+profile.profile_pic}}"  class="img-thumbnail"></span>
+                       </div>
+                     </div>
+                   </div>
+                   <div class="col d-flex flex-column flex-sm-row justify-content-between mb-3">
+                     <div class="text-center text-sm-left mb-2 mb-sm-0">
+                       <h4 class="pt-sm-2 pb-1 mb-0 text-nowrap">{{profile.username}}</h4>
+
+                       <div class="mt-2">
+                         <button class="btn btn-primary " type="button" >
+                           <i class="fa fa-fw fa-camera">  </i>
+                           <span>Change Photo</span>
+                           <input class="form-control" type="file" (change)="imageup($event)">
+                         </button>
+                       </div>
+                     </div>
+                     <div class="text-center text-sm-right">
+                       <div class="text-muted"><small>{{datePipe.transform(profile.created_at, "dd/MM/yy - hh:mm:ss a")}}</small></div>
+                     </div>
+                   </div>
+                 </div>
+             <ul class="nav nav-tabs">
+               <li class="nav-item"><a class="active nav-link" href="">My Profile</a></li>
+
+             </ul>
+             <div class="tab-content pt-3">
+               <div class="tab-pane active">
+                 <form class="form" novalidate="">
+                   <div class="row">
+                     <div class="col">
+                       <div class="row">
+                         <div class="col ">
+                           <div class="form-group mt-3">
+                             <label>First Name</label>
+                             <input class="form-control" name="first_name"  [(ngModel)]="profile.first_name" type="text">
+                           </div>
+                         </div>
+                         <div class="col ">
+                           <div class="form-group mt-3">
+                             <label>Last Name</label>
+                             <input ngDefaultControl class="form-control"  name="Last_Name" [(ngModel)]="profile.last_name" >
+                           </div>
+                         </div>
+                       </div>
+
+
+                       <div class="row ">
+                         <div class="col mt-3">
+                           <div class="form-group">
+                             <label>user name</label>
+                             <input class="form-control" name="username" [(ngModel)]="profile.username" type="text">
+                           </div>
+                         </div>
+                       </div>
+
+
+                         <div class="row ">
+                           <div class="col  mt-3">
+                             <div class="form-group">
+                               <label>Phone number</label>
+                               <input class="form-control" name="phone" [(ngModel)]="profile.phone" type="text">
+                             </div>
+                           </div>
+                         </div>
+
+
+                     </div>
+                   </div>
+
+                   <div class="row mt-4">
+                     <div class="col d-flex justify-content-center">
+                       <button class="btn btn-primary" (click)="updateProfile()" type="submit">Save</button>
+                     </div>
+                   </div>
+                   <div class="row mt-4">
+                     <div class="col d-flex justify-content-center">
+                       <button class="btn btn-outline-dark" (click)="navigateBack()" type="submit">back</button>
+                     </div>
+                   </div>
+
+
+                 </form>
+
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+
+     <div class="col-12 col-md-3 mb-3">
+
+     </div>
+   </div>
+
+ </div>
+</div>
+</div>
+</div>
+
+
+<div *ngIf="profile == null " style="height:90vh; display: flex;align-items: center;
+justify-content: center;">
+  <div>
+    <div class="spinner-border text-secondary" style="width: 15vh; height: 15vh;" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+</div>

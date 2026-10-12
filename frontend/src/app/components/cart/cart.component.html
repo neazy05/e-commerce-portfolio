@@ -1,0 +1,91 @@
+<div class="cart-box-main">
+  <div class="container">
+    <!-- <button type="button" class="btn-close" aria-label="Close"></button> -->
+    <div class="row">
+      <div class="col-lg-12">
+
+        <div class="table-main table-responsive">
+
+          <table class="table table-striped">
+            <thead class="thead-dark">
+              <tr class="table-dark">
+                <!-- <th scope="col">Images</th> -->
+                <th></th>
+                <th scope="col">Product Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Total</th>
+                <th scope="col">Remove</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- <div *ngIf="cartItems != null"> -->
+              <tr *ngFor="let item of cartItems">
+                <td class="thumbnail-img" *ngIf="item.count != 0">
+                  <img class="img-fluid" src="images/img-pro-01.jpg" alt="" />
+                </td>
+                <td class="name-pr" *ngIf="item.count != 0">
+                  <span [routerLink]="'/product/' + item.product.id" class="custom-link">{{item.product.name}}</span>
+                </td>
+                <td class="price-pr" *ngIf="item.count != 0">
+                  <p>$ {{item.product.price}}</p>
+                </td>
+                <td *ngIf="item.count != 0" class="quantity-box"><input type="number" size="4" [(ngModel)]="item.count"
+                    value="1" min="1" step="1" class="c-input-text qty text" [(ngModel)]="item.count"
+                    (change)="changeTotal(item.product.id)">
+                </td>
+                <td *ngIf="item.count != 0" class="total-pr">
+                  <p>$ {{item.price}}</p>
+                </td>
+                <td *ngIf="item.count != 0" class="remove-pr">
+                  <button class="btn btn-danger rounded-pill" type="button"
+                    (click)="removeItem(item.product.id)">Delete</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-12 row py-5 p-4 bg-white rounded shadow-sm">
+
+
+      <div class="col-lg-3 bg-white rounded shadow-sm"></div>
+      <div class="col-lg-6 bg-white rounded shadow-sm">
+        <div class="col-lg-12 col-sm-12">
+          <div class="col-lg-12">
+            <div class="bg-dark px-4 py-3 mt-3 text-uppercase font-weight-bold text-white">Payment Info
+            </div>
+            <div class="p-4">
+              <ul class="list-unstyled mb-4">
+                <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Order Total
+                  </strong><strong>$ {{totalPrice}}</strong></li>
+                <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Money in
+                    Account
+                  </strong><strong>$ {{userBalance}}</strong></li>
+              </ul>
+              <div class="input-group mb-4 p-2">
+                <div class="input-group mb-3">
+                  <input type="text" class="form-control rounded-pill px-4 py-3" placeholder="Type address here..."
+                    [(ngModel)]="address">
+                </div>
+              </div>
+
+
+              <button type="button" class="btn btn-primary btn-block rounded-pill px-4 py-3"
+                (click)="submitCartAsOrder()">Order</button>
+              <span class="mx-2"></span>
+              <button type="button" class="btn btn-outline-primary btn-block rounded-pill px-4 py-3"
+                (click)="submitCartAsGift()">Send as Gift</button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>

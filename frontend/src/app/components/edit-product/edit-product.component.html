@@ -1,0 +1,74 @@
+<div *ngIf="product != null">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-xs-1 col-sm-1"></div>
+      <div class="col-md-6 col-xs-5 col-sm-5">
+        <div class="container my-4 display-6">
+          <button class="btn btn-outline-secondary" (click)="navigateBack()">back</button>
+        </div>
+      </div>
+      <div class="col-md-3 col-xs-1 col-sm-1"></div>
+    </div>
+  </div>
+
+  <div class="container my-4 display-6">
+    <div class="row">
+      <div class="col-md-3 col-xs-1 col-sm-1"></div>
+      <div class="col-md-6 col-xs-10 col-sm-10">Edit Product</div>
+      <div class="col-md-3 col-xs-1 col-sm-1"></div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-xs-1 col-sm-1"></div>
+      <div class="col-md-6 col-xs-10 col-sm-10">
+        <label class="form-label">Name:</label>
+        <input name="name" ngDefaultControl type="text" class="form-control" placeholder="Name"
+          [(ngModel)]="product.name">
+        <label class="form-label mt-3">Description:</label>
+        <textarea name="description" ngDefaultControl type="text" class="form-control" placeholder="Description"
+          rows="3" [(ngModel)]="product.description"></textarea>
+        <label class="form-label mt-3">Price:</label>
+        <input readonly name="price" ngDefaultControl type="number" class="form-control" placeholder="Price"
+          [(ngModel)]="product.price">
+        <label class="form-label mt-3">Picture</label>
+        <input name="fieldName" ngDefaultControl type="file" (change)="onFileSelect($event)" class="form-control"
+          placeholder="Picture" accept="image/-png,image/gif,image/jpeg" [(ngModel)]="product.picture">
+
+        <label for="" class="mt-2">Category:</label>
+        <select class="form-select" aria-label="Default select example" [(ngModel)]="product.category_id">
+          <option *ngFor="let cat of categories" value="{{cat.id}}">{{cat.name}}</option>
+        </select>
+        <!-- <div class="form-check mt-3">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked
+            [(ngModel)]="product.is_offer">
+          <label class="form-check-label" for="flexCheckChecked">
+            Is Offer
+          </label>
+        </div> -->
+
+
+        <button class="btn btn-primary form-control mt-4" (click)="updateProduct();">Update Product</button>
+        <div class="row my-5">
+          <div class="col-md-3 col-xs-1 col-sm-1"></div>
+          <div class="col-md-6 col-xs-5 col-sm-5">
+            <div class="container my-4 display-6"></div>
+          </div>
+          <div class="col-md-3 col-xs-1 col-sm-1"></div>
+        </div>
+        <!-- <img [src]="urlLink"> -->
+      </div>
+      <div class="col-md-3 col-xs-1 col-sm-1"></div>
+    </div>
+  </div>
+</div>
+
+
+<div *ngIf="product == null" style="height:90vh; display: flex;align-items: center;
+justify-content: center;">
+  <div>
+    <div class="spinner-border text-secondary" style="width: 15vh; height: 15vh;" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+</div>

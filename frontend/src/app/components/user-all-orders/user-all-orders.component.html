@@ -1,0 +1,81 @@
+<div *ngIf="orders != null && profile != null">
+  <div class="container my-4 display-6">
+    {{profile.username}}'s Orders
+  </div>
+
+  <!-- <div class="container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope='col'>#</th>
+          <th scope='col'>Total</th>
+          <th scope='col'>Prepaid</th>
+          <th scope='col'>Location</th>
+          <th scope='col'>Created At</th>
+          <th scope='col'>Status</th>
+          <th scope='col'>Deliverer</th>
+          <th scope='col'>Is Delivered</th>
+          <th scope='col'></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of orders">
+          <th scope="row">{{order.id}}</th>
+          <td>{{order.total}}</td>
+          <td>{{order.is_paid == true ? "Yes" : "No"}}</td>
+          <td>{{order.address}}</td>
+          <td>{{datePipe.transform(order.created_at, "dd/MM/yy - hh:mm:ss a")}}</td>
+          <td>{{order.is_accepted == 0 ? 'Pending' : order.is_accepted == 1 ? 'Accepted' : "Rejected"}}</td>
+          <td>{{order.deliverer != null ? order.deliverer : "None"}}</td>
+          <td>{{order.is_delivered ? 'Yes' : 'No'}}</td>
+          <td><span class="details-button" [routerLink]="'/orderDetails/' + order.id">Details</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div> -->
+
+  <div class="container">
+
+    <div class="table-responsive-xl shadow-lg">
+      <table class="table table-striped table-hover table-bordered-outside">
+        <thead>
+          <tr>
+            <th scope='col'>#</th>
+            <th scope='col'>Total</th>
+            <th scope='col'>Prepaid</th>
+            <th scope='col'>Location</th>
+            <th scope='col'>Created At</th>
+            <th scope='col'>Status</th>
+            <th scope='col'>Deliverer</th>
+            <th scope='col'>Is Delivered</th>
+            <th scope='col'>details</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let order of orders; let i = index;">
+            <th scope="row">{{order.id}}</th>
+            <td>{{order.total}}</td>
+            <td>{{order.is_paid == true ? "Yes" : "No"}}</td>
+            <td>{{order.address}}</td>
+            <td>{{datePipe.transform(order.created_at, "dd/MM/yy - hh:mm:ss a")}}</td>
+            <td>{{order.is_accepted == 0 ? 'Pending' : order.is_accepted == 1 ? 'Accepted' : "Rejected"}}</td>
+            <td>{{order.deliverer != null ? order.deliverer : "None"}}</td>
+            <td>{{order.is_delivered ? 'Yes' : 'No'}}</td>
+            <td><span class="details-button" [routerLink]="'/orderDetails/' + order.id">Details</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="orders == null || profile == null" style="height:90vh; display: flex;align-items: center;
+justify-content: center;">
+  <div>
+    <div class="spinner-border text-secondary" style="width: 15vh; height: 15vh;" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+</div>

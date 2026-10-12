@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3 col-xs-1 col-sm-1"></div>
+    <div class="col-md-6 col-xs-10 col-sm-10 display-6 mt-4" align="center">Categories</div>
+    <div class="col-md-3 col-xs-1 col-sm-1"></div>
+  </div>
+  <div class="row">
+    <div class="col-md-3 col-xs-1 col-sm-1"></div>
+    <div class="col-md-6 col-xs-10 col-sm-10 display-6 mt-4" align="center"
+      style="height:1px; width: 20%;margin:auto; background-color: black;;"></div>
+    <div class="col-md-3 col-xs-1 col-sm-1"></div>
+  </div>
+</div>
+
+<div *ngIf="categories != null">
+  <div class="container spacer mt-5">
+    <div *ngFor="let category of categories">
+      <div class="row mb-3">
+        <div class="col-md-3 col-xs-1 col-sm-1"></div>
+        <div [routerLink]="'/category/' + category.id" align="center"
+          class="col-md-6 col-xs-10 col-sm-10 img custom-link"
+          style="background-image:url({{category.image}}); background-size: cover; border-radius: 50%;"></div>
+        <div class="col-md-3 col-xs-1 col-sm-1"></div>
+      </div>
+      <div class="row mb-5">
+        <div class="col-md-3 col-xs-1 col-sm-1"></div>
+        <div class="col-md-6 col-xs-1 col-sm-1" align="center"><span [routerLink]="'/category/' + category.id"
+            class="custom-link display-6">{{category.name}}</span></div>
+        <div class="col-md-3 col-xs-1 col-sm-1"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="categories == null" style="height:75vh; display: flex;align-items: center;
+justify-content: center;">
+  <div>
+    <div class="spinner-border text-secondary" style="width: 15vh; height: 15vh;" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,25 @@
+<div *ngIf="profile != null">
+  <div class="container my-4 display-6">
+    {{profile.username}}'s eWallet
+  </div>
+  <div class="container my-4 display-6">
+    Current balance: $ {{balance}}
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-sm-12 mb-3"><input type="text" class="form-control" placeholder="enter a code"
+          [(ngModel)]="code"></div>
+      <div class="col-6"><button type="submit" class="btn btn-primary" (click)="applyCoupon()">Apply Coupon</button></div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="profile == null" style="height:90vh; display: flex;align-items: center;
+justify-content: center;">
+  <div>
+    <div class="spinner-border text-secondary" style="width: 15vh; height: 15vh;" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,97 @@
+<div class="container text-center " style="padding: 70px 0px;">
+    <div class="row">
+        
+
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4 row py-5 p-4 bg-white rounded shadow-sm">
+        <div class="stepwizard">
+            <div class="stepwizard-row setup-panel">
+                <div class="stepwizard-step">
+                    <a href="#profilesetup-step" type="button" class="btn btn-success btn-circle" > <strong class="justify-center"> 1</strong>
+                        <span class="glyphicon glyphicon-envelope"></span>
+                    </a>
+                    <p>profile setup</p>
+                </div>
+                <div class="stepwizard-step">
+                    <a href="#validatephone-step" type="button" class="btn btn-primary btn-circle"  id="ProfileSetup-step-2"> <strong class="text-center"> 2</strong>
+                        <span class="glyphicon glyphicon-user"></span> 
+                    </a>
+                    <p>validate your number</p>
+                </div>
+                
+            </div>
+        </div>
+        <p class="h4 mb-4 bg-dark rounded-pill px-4 py-3 text-white" id="profilesetup-step">Sign up</p>
+      
+        <!-- Email -->
+        <input type="text" class="form-control mb-4" placeholder="first name" required="required">
+        <input type="text" class="form-control mb-4" placeholder="last name" required="required">
+        <input type="text" class="form-control mb-4" placeholder="username" required="required">
+    
+        <select required="required" class="form-control" >
+            <option value="0">Select Country</option>
+           <option value="damascus">damascus</option>
+           <option value="Alleppo">Alleppo</option>
+           <option value="Homs">Homs</option>
+           <option value="Daraa">Daraa</option>
+           <option value="Swieda">Swieda</option>
+           <option value="Hama">Hama</option>
+           <option value="Lattakia">Lattakia</option>
+           <option value="Tartous">Tartous</option>
+           <option value="Raqqa">Raqqa</option>
+           <option value="Hasaka">Hasaka</option>
+           <option value="Dier elzor">Dier elzor</option>
+           <option value="Idleb">Idleb</option>
+           
+           
+       </select>
+       <br>
+        <input type="text" class="form-control mb-4" placeholder="address" required="required">
+        <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="email" required="required">
+  
+        <!-- Password -->
+        <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password" required="required">
+        <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="confirm Password" required="required">
+      
+    
+      
+        <!-- Sign in button -->
+        
+        <a href="#validatephone-step" class="btn btn-primary btn-lg rounded-pill px-4 py-3 mb-4 ">next</a>
+       <br>
+        
+        </div>
+        <div class="col-sm-4"></div>
+        
+      
+      <div class="container text-center" id="validatephone-step" aria-disabled="false">
+        <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+        
+            <p class="h4 my-4 bg-dark rounded-pill px-4 py-3 text-white">Sign up</p>
+          
+            <!-- Email -->
+      
+                   <div class="input-group mb-3">
+                    <input type="tel" pattern=".{10}" class="form-control" id="validationCustom08" placeholder="Mobile" oninput="check(this)" required>
+                       <div class="input-group-append">
+                      <button class="btn btn-success" type="submit">OK</button>
+                    </div>
+                  </div>
+            <div class="alert alert-primary" role="alert">
+                
+               We sent a code to ypur mobile,please check it.
+
+              </div>
+            <input type="text" class="form-control mb-4" placeholder="inter the code" required="required">
+          
+            <button class="btn btn-primary btn-lg pull-right nextBtn rounded-pill px-4 py-3" type="submit">Complete Registration</button>
+        
+            
+            <div class="col-sm-4"></div>
+            </div>
+          </div>
+        </div>
+</div>
+

@@ -1,0 +1,36 @@
+<div class="container my-4 display-6">
+  <div class="row">
+    <div class="col-md-3 col-xs-1 col-sm-1"></div>
+    <div class="col-md-6 col-xs-10 col-sm-10">Generate Codes</div>
+    <div class="col-md-3 col-xs-1 col-sm-1"></div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3 col-xs-1 col-sm-1"></div>
+    <div class="col-md-6 col-xs-10 col-sm-10">
+      <label for="" class="mt-2">Value:</label>
+      <select class="form-select" aria-label="Default select example" [(ngModel)]="value">
+        <option value="1000" selected>$1,000</option>
+        <option value="2000">$2,000</option>
+        <option value="3000">$3,000</option>
+        <option value="4000">$4,000</option>
+        <option value="5000">$5,000</option>
+        <option value="6000">$6,000</option>
+        <option value="7000">$7,000</option>
+        <option value="8000">$8,000</option>
+        <option value="9000">$9,000</option>
+        <option value="10000">$10,000</option>
+      </select>
+      <label for="" class="mt-4">Number of codes:</label>
+      <select class="form-select" aria-label="Default select example" [(ngModel)]="count">
+        <option value="1" selected>1</option>
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="20">20</option>
+      </select>
+      <button class="btn btn-outline-primary form-control mt-4" (click)="callMe()">Generate</button>
+    </div>
+    <div class="col-md-3 col-xs-1 col-sm-1"></div>
+  </div>
+</div>

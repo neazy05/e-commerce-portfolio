@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3 col-xs-1 col-sm-1"></div>
+    <div class="col-md-6 col-xs-5 col-sm-5">
+      <div class="container my-4 display-6">
+        <button class="btn btn-outline-secondary" (click)="navigateBack()">back</button>
+      </div>
+    </div>
+    <div class="col-md-3 col-xs-1 col-sm-1"></div>
+  </div>
+</div>
+
+<div *ngIf="product != null">
+  <div class="container spacer">
+    <div class="row">
+      <div class="col-md-3 col-xs-1 col-sm-1"></div>
+      <div class="col-md-3 col-xs-5 col-sm-5">
+        <span class="display-6 px-1" style="border-right: 1px solid black;">{{product.name}}</span>
+        <span class="mx-2">price: ${{product.price}}</span>
+      </div>
+      <div class="col-md-4 col-xs-5 col-sm-5">
+        <div class="btn btn-outline-success" (click)="addToCart()">Add to Cart</div>
+        <div *ngIf="isFavorite==false" class="btn btn-outline-warning mx-1" (click)="addToFavorte()">Add to Favorites</div>
+        <div *ngIf="isFavorite==true" class="btn btn-warning mx-1 text-white" (click)="RemoveToFavorte()">Remove from Favorites</div>
+        <div *ngIf="canEdit==true" class="btn btn-outline-dark"><i class="fa fa-pen"></i></div>
+      </div>
+      <div class="col-md-2 col-xs-1 col-sm-1"></div>
+    </div>
+    <div class="row mt-2">
+      <div class="col-md-3 col-xs-1 col-sm-1"></div>
+      <div class="col-md-6 col-xs-12 col-sm-12 img"
+        style="background-repeat: no-repeat; background-position: center;background-size: contain; background-image:  url({{sharedService.url+'/storage/image/'+product.picture}}); height:350px;">
+      </div>
+      <div class="col-md-3 col-xs-1 col-sm-1"></div>
+    </div>
+    <div class="row mt-2">
+      <div class="col-md-3 col-xs-1 col-sm-1"></div>
+      <div class="col-md-6 col-xs-11 col-sm-11">{{product.description}}</div>
+      <div class="col-md-3 col-xs-1 col-sm-1"></div>
+    </div>
+    <div class="row mt-2">
+      <div class="col-md-7 col-xs-1 col-sm-1"></div>
+      <div class="col-md-2 col-xs-11 col-sm-11">By: <span [routerLink]="'/market/'+ product.market_id"
+          class="market-link">{{owner}}</span></div>
+      <div class="col-md-3 col-xs-1 col-sm-1"></div>
+    </div>
+  </div>
+</div>
+
+
+<div *ngIf="product == null" style="height:90vh; display: flex;align-items: center;
+justify-content: center;">
+  <div>
+    <div class="spinner-border text-secondary" style="width: 15vh; height: 15vh;" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+</div>

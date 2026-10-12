@@ -1,0 +1,29 @@
+.img {
+  width: 42%;
+}
+
+.spacer {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.market-link {
+  text-decoration: underline;
+}
+.market-link:hover {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 799px) {
+  .img {
+    width: 100%;
+  }
+  .spacer {
+    margin-top: 20px;
+    margin-bottom: 0;
+  }
+}
+
+.product-link:hover {
+  cursor: pointer;
+}
